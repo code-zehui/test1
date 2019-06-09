@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        // var name = '2';
+        // var object = {
+        //     name: '1',
+        //     getNameFunc: function () {
+        //             return this.name;
+        //     }
+        // } 
+        // alert(object.getNameFunc());   //1
+
+
+
+        // var name = '2';
+        // var object = {
+        //     name: '1',
+        //     getNameFunc: function () {
+        //         return function () {
+        //             return this.name;
+        //         }
+        //     }
+        // } 
+        // alert(object.getNameFunc()());   //2
+
+
+
+
+
+        // var a = {n: 1}
+        // var b = a;
+        // a.x = a = {n:2}  //相当于： a.x = a; a = {n:2}
+        // console.log(a.x);     //undefined
+        // console.log(b.x);     //{n:2}
+
+
+
+        // console.log(1);
+        // setTimeout(function () {console.log(2)}, 1000)
+        // setTimeout(function () {console.log(3)}, 0)
+        // console.log(4);
+
+
+
+        // function model(n,o) {
+        //     console.log(o)
+        //     return {
+        //         model: function (m) {
+        //             return model(m,n);
+        //         }
+        //     };
+        // }
+        // var a = model(0); a.model(1); a.model(2); a.model(3);
+        // // undefined 0  0  0 
+        // var b = model(0).model(1).model(2).model(3);
+        // // undefined 0  1  2
+        // var c = model(0).model(1); c.model(2); c.model(3);
+        // //undefined  0  1  1
+
+
+
+        // function addCount () {
+        //     var n = 0;
+        //     function add() {
+        //         n++;
+        //         console.log(n);
+        //     }
+        //     return {n:n,add:add}
+        // }
+        // var newObj = addCount();   // {n:0, add: fn}1
+        // var newObj2 = addCount();  // {n:0, add:fn}2
+        // newObj.add();  //1    {n:1, add:fn}1
+        // newObj.add();  //2    {n:2, add:fn}1
+        // console.log(newObj.n); //0   {n:0, add:fn}
+        // newObj2.add();  //1    {n:1, add:fn}2 
+
+
+
+        // var length = 10;
+        // function fn() {
+        //     console.log(this.length);
+        // }
+        // var obj = {
+        //     length: 5,
+        //     mathod: function (fn) {
+        //         console.log(arguments[0]);
+        //         fn();           //10
+        //         arguments[0]();   //2    相当于arguments对象调用fn方法
+        //         console.log(arguments[0]);
+        //     }
+        // };
+        // obj.mathod(fn, 1);
+
+
+        // if (true) {
+        //     function foo() {
+        //         console.log(true);
+        //     }
+        // } else {
+        //     function foo() {
+        //         console.log(false);
+        //     }
+        // }
+        // foo();          //true
+
+
+
+
+        //给定数组找出给定元素的索引位置，没有则输出-1
+        // function indexOf(arr, item) {   
+        //     if (arr.indexOf(item) != -1) {
+        //         return (arr.indexOf(item));
+        //     } else {
+        //         return -1;
+        //     }
+        // }
+
+
+
+
+        //计算数组中元素和
+        // function sum(arr) {
+        //     var num = 0;
+        //     for (var i = 0; i < arr.length; i++) {
+        //         num += arr[i];
+        //     }
+        //     return num;
+        // }
+
+
+
+
+        //移除数组 arr 中的所有值与 item 相等的元素，直接在给定的 arr 数组上进行操作，并将结果返回
+        // function removeWithoutCopy(arr, item) {
+        //     for (var i = 0; i < arr.length; i++) {
+        //         if (arr.indexOf(item) != -1) {
+        //             arr.splice(arr.indexOf(item), 1)
+        //         }
+        //     }
+        //     return arr;
+        // }
+        // var aa = removeWithoutCopy([1, 2, 2, 3, 4, 2, 2], 2);
+        // console.log(aa);
+
+
+
+
+        //合并数组
+        // function concat(arr1, arr2) {
+        //     var newArr = [];
+        //     for (var i = 0; i < arr1.length; i++) {
+        //         newArr[i] = arr1[i];
+        //     }
+        //     for (var j = 0; j < arr2.length; j++) {
+        //         newArr.push(arr2[j]);
+        //     }
+
+        //     return newArr;
+        // }
+        // console.log(concat([1, 2, 3, 4], ['a', 'b', 'c', 1]))
+
+
+
+        //查找数组中重复出现过的元素
+        // function duplicates(arr) {
+        //     var newArr = [];
+        //     for (var i = 0; i < arr.length; i++) {
+        //         if (arr.indexOf(arr[i]) != i && newArr.indexOf(arr[i]) == -1) {
+        //             newArr.push(arr[i]);
+        //         }
+        //     }
+        //     return newArr.sort();
+        // }
+        // console.log(duplicates([1,2,4,4,3,3,1,5,3]));
+
+
+
+        // function square(arr) {
+        //     var newArr = [];
+        //     // for (var i = 0; i < arr.length; i++) {
+        //     //     newArr[i] = arr[i]
+        //     // }
+        //     newArr = arr.map(function (item) {
+        //         // return (item * item);
+        //         return Math.pow(item, 2)
+        //     })
+        //     return newArr;
+        // }
+        // console.log(square([1,2,3,4]))
+
+
+
+
+        // function functions(flag) {
+        //     if (flag) {
+        //         function getValue() {
+        //             return 'a';
+        //         }
+        //     } else {
+        //         function getValue() {
+        //             return 'b';
+        //         }
+        //     }
+
+        //     return getValue();
+        // }
+        // console.log( functions(true) );
+
+        // console.dir(document.querySelector('div').contains)
+        // console.dir(document.querySelector('li'))
+
+        // function commonParentNode(oNode1, oNode2) {
+        //     for ( ; oNode1; oNode1 = oNode1.parentNode) {
+        //         if (oNode1.contains(oNode2)) {
+        //             return oNode1;
+        //         }
+        //     }
+        // }
+
+
+        // function namespace(oNamespace, sPackage) {
+        //     var arr = sPackage.split('.');
+        //     var res = oNamespace; // 保留对原始对象的引用
+
+        //     for (var i = 0, len = arr.length; i < len; i++) {
+        //         if (arr[i] in oNamespace) { // 空间名在对象中
+        //             if (typeof oNamespace[arr[i]] !== "object") { // 为原始值
+        //                 oNamespace[arr[i]] = {}; // 将此属性设为空对象           
+        //             }
+        //         } else { // 空间名不在对象中，建立此空间名属性，赋值为空
+        //             oNamespace[arr[i]] = {};
+        //         }
+        //         oNamespace = oNamespace[arr[i]]; // 将指针指向下一个空间名属性。
+        //     }
+        //     return res;
+        // }
+        // var aa = namespace({
+        //     a: {
+        //         test: 1,
+        //         b: 2
+        //     }
+        // }, 'a.b.c.d');
+        // console.log(aa);
+
+
+
+
+        // var a = {};
+        // var b = {
+        //     key: 'b'
+        // };
+        // var c = {
+        //     key: 'c'
+        // };
+        // var d = [3, 5, 6];
+        // a[b] = 123;
+        // a[c] = 345;
+        // a[d] = 333;
+
+        // console.log(String({
+        //     key: 'b'
+        // })); //[object Object]
+        // console.log(String([3, 4, 5])); //'3,4,5'
+        // //{{key: 'b'}: 123, {key: 'c'}: 'c', [3,4,5]: 333}
+        // //{'[object Object]': 123, '[object Object]': 345, '3,4,5': 333}
+        // console.log(a[b]); //345
+        // console.log(a[c]); //345
+        // console.log(a[d]); //333
+
+        // var x = 1;
+        // function fn(n) {
+        //     n = n + 1
+        // };
+        // y = fn(x)
+
+
+        //给定字符串判断是否符合美元书写格式
+        // function isUSD(str) {
+        //     var newStr = str.substr(str.indexOf('.') + 1);
+        //     if (newStr.length != 2 || str[0] != '$') {
+        //         return false;
+        //     }
+        //     var str2 = str.slice(1, str.indexOf('.'));
+        //     var sArr = str2.split(/\.|\,/)
+        //     for (var i = 1; i < sArr.length; i++) {
+        //         if (sArr[i].length != 3 || Number(sArr[i]) == NaN) {
+        //             return false;
+        //         }
+        //     }
+        //     return true;
+        // }
+        // console.log(isUSD('$20,933,209.30'));
+        // var ss = '123';
+        // console.log(Number(ss))
+
+
+        // function isUSD(str) {
+        //     var reg = /^\$([1-9]\d{0,2}(,\d{3})*)|0(\.\d{2})?$/;
+        //     // var reg = /^\$(([1-9]\d{0,2}(,\d{3})*)|0)(\.\d{2})?$/;
+
+        //     return reg.test(str);
+        // }
+        // console.log(isUSD('$20,933,209.30'));
+        // var ss = '123';
+        // console.log(Number(ss))
+
+
+
+
+
+        //给定一个数组和一个数字，输出数组中两个和为目标数字的两个数字下标
+        // var twoSum = function(nums, target) {
+        //     for(var i = 0; i < nums.length; i ++) {
+        //         for(var j = 0; j < nums.length; j ++) {
+        //             if(nums[i] + nums[j] == target && i != j) {
+        //                 return [i, j]
+        //             }
+        //         }
+        //     }
+        // }
+
+
+        // console.log('2->6->4'.split('->').join(''));
+        // var addTwoNumbers = function (l1, l2) {
+        //     var n1 = l1.reverse().join('');
+        //     var n2 = l2.reverse().join('');
+        //     var n3 = -(-n1 - n2);
+        //     return String(n3).split('').reverse().join('->');
+        // };
+        // var ss = addTwoNumbers([2,4,3], [5,6,4]);
+        // console.log(ss);
+
+        // function ListNode(val) {
+        //     this.val = val.join('->');
+        //     // this.next = null;
+        //     // this.zhi = function () {
+        //     //     return this.val.join('->');
+        //     // }
+        // }
+        // var l1 = new ListNode([2,4,3]);
+        // console.log(l1.val);
+
+
+
+
+
+        var arr = [[1,2,2],[3,4,5,5],[6,7,8,9,[11,12,[14]]],10];
+        arr = arr.flat(Infinity);
+        arr = Array.from(new Set(arr));
+        arr = arr.sort((a,b) => {return a-b});
+        alert(arr);
+    </script>
+</body>
+
+</html>
