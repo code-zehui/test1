@@ -341,7 +341,7 @@
         //     var n3 = -(-n1 - n2);
         //     return String(n3).split('').reverse().join('->');
         // };
-        // var ss = addTwoNumbers([2,4,3], [5,6,4]);
+        // var ss = addTwoNumbers([2, 4, 3], [5, 6, 4]);
         // console.log(ss);
 
         // function ListNode(val) {
@@ -351,18 +351,64 @@
         //     //     return this.val.join('->');
         //     // }
         // }
-        // var l1 = new ListNode([2,4,3]);
+        // var l1 = new ListNode([2, 4, 3]);
         // console.log(l1.val);
 
 
+        var addTwoNumbers = function (l1, l2) {
+            var result = [];
+            var flag = false;
+            var k = 0
+            for (let i = Math.max(l1.length, l2.length) - 1; i >= 0; i--) {
+
+                var jinwei = 1;
+                var sum = (l1[i] || 0) + (l2[i] || 0);
+                console.log(sum)
+                if (flag) {
+                    sum = sum + 1;
+                    flag = false
+                } else {
+                    sum = sum;
+                }
+                if (sum >= 10) {
+                    result[k] = sum % 10;
+                    flag = true
+                } else {
+                    result[k] = sum;
+                }
+                console.log(k)
+                k++
+
+            }
+            if (flag) {
+                result[k] = 1
+
+            }
+
+            return result
+        };
 
 
 
-        var arr = [[1,2,2],[3,4,5,5],[6,7,8,9,[11,12,[14]]],10];
-        arr = arr.flat(Infinity);
-        arr = Array.from(new Set(arr));
-        arr = arr.sort((a,b) => {return a-b});
-        alert(arr);
+
+        // var arr = [[1,2,2],[3,4,5,5],[6,7,8,9,[11,12,[14]]],10];
+        // arr = arr.flat(Infinity);
+        // arr = Array.from(new Set(arr));
+        // arr = arr.sort((a,b) => {return a-b});
+        // alert(arr);
+
+
+        // var aa = '';
+        // var num = 0;
+        // for(var i = 1; i <= 10000; i ++) {
+        //     aa += i;
+        // }
+        // for(var j = 0; j < aa.length; j ++) {
+        //     if(aa[j] == 0) {
+        //         num++;
+        //     }
+        // }
+        // console.log(num);
     </script>
 </body>
 
