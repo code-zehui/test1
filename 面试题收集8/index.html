@@ -355,38 +355,6 @@
         // console.log(l1.val);
 
 
-        var addTwoNumbers = function (l1, l2) {
-            var result = [];
-            var flag = false;
-            var k = 0
-            for (let i = Math.max(l1.length, l2.length) - 1; i >= 0; i--) {
-
-                var jinwei = 1;
-                var sum = (l1[i] || 0) + (l2[i] || 0);
-                console.log(sum)
-                if (flag) {
-                    sum = sum + 1;
-                    flag = false
-                } else {
-                    sum = sum;
-                }
-                if (sum >= 10) {
-                    result[k] = sum % 10;
-                    flag = true
-                } else {
-                    result[k] = sum;
-                }
-                console.log(k)
-                k++
-
-            }
-            if (flag) {
-                result[k] = 1
-
-            }
-
-            return result
-        };
 
 
 
@@ -409,6 +377,87 @@
         //     }
         // }
         // console.log(num);
+
+        // var addTwoNumbers = function (l1, l2) {
+        //     var result = [];
+        //     var flag = false;
+        //     var k = 0
+        //     for (let i = Math.max(l1.length, l2.length) - 1; i >= 0; i--) {
+
+        //         var jinwei = 1;
+        //         var sum = (l1[i] || 0) + (l2[i] || 0);
+        //         console.log(sum)
+        //         if (flag) {
+        //             sum = sum + 1;
+        //             flag = false
+        //         } else {
+        //             sum = sum;
+        //         }
+        //         if (sum >= 10) {
+        //             result[k] = sum % 10;
+        //             flag = true
+        //         } else {
+        //             result[k] = sum;
+        //         }
+        //         console.log(k)
+        //         k++
+
+        //     }
+        //     if (flag) {
+        //         result[k] = 1
+
+        //     }
+
+        //     return result
+        // };
+
+        //统计字符串中每个字符出现的次数
+        // function count(str) {
+        //     var obj = {};
+        //     for(var i = 0; i < str.length; i ++) {
+        //         if(obj[str[i]] == undefined) {
+        //             obj[str[i]] = 1;
+        //         } else {
+        //             obj[str[i]] = Number(obj[str[i]]) + 1;
+        //         }
+        //     }
+        //     return obj;
+        // }
+        // console.log(count('hello world'));
+
+
+        //将字符串转换为驼峰格式
+        // function cssStyle2DomStyle(sName) {
+        //     var arr = sName.split('-');
+        //     if(arr[0] == '') {
+        //         arr.shift();
+        //     }
+        //     for(var i = 1; i < arr.length; i ++) {
+        //         arr[i] = arr[i].substring(0,1).toUpperCase() +  arr[i].substring(1);
+        //     }
+        //     return arr.join('');
+        // }
+        // console.log(cssStyle2DomStyle('-webkit-border-image'))
+
+
+        //颜色字符串转换，将 rgb 颜色字符串转换为十六进制的形式，如 rgb(255, 255, 255) 转为 #ffffff
+        function rgb2hex(sRGB) {
+            var reg = /^rgb\(\s*\d+\s*,\s*\d+\s*,\s*\d+\s*\)$/;
+            if(!reg.test(sRGB)) {
+                return sRGB;
+            }
+            var arr = sRGB.substring(sRGB.indexOf('(') + 1, sRGB.indexOf(')')).split(',');
+            for(var i = 0; i < arr.length; i ++) {
+                if(arr[i] > 255) {
+                    return sRGB;
+                }else {
+                    arr[i] = Number(arr[i]).toString(16);
+                }
+            }
+            var str = '#' + arr.join('');
+            return str;
+        }
+        console.log(rgb2hex('rgb(189, 255, 255)'));
     </script>
 </body>
 
